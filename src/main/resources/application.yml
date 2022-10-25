@@ -1,25 +1,30 @@
 server:
-  port: 8084
+  port: 8084 #puerto para la conexion local
 
 spring:
   application:
     name: registro-de-citas
   datasource:
     #datos de conexion para mysql
-    #url: jdbc:mysql://localhost:3306/db_citasmedicas?useSSL=false
-    #driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/db_datajavarest
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
     #datos de conexion para H2
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
+    #url: jdbc:h2:mem:testdb
+    #driver-class-name: org.h2.Driver
+
     #datos de acceso para las bases de datos
     username: root
-    password: root
+    password:
   jpa:
-    #database-platform: org.hibernate.dialect.MySQLDialect
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    #database-platform: org.hibernate.dialect.MySQL55Dialect
+    #database-platform: org.hibernate.dialect.MySQL57Dialect
+
+    #h2 data platform
+    #database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      #ddl-auto: create-drop
+      ddl-auto: create-drop
   h2:
     console:
-      enabled: true
+      enabled: false
